@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Historical Rates
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Your Historical Currency Conversions</h2>
+
+    {% if history %}
+    <ul class="list-group mt-4">
+        {% for conversion in history %}
+        <li class="list-group-item">
+            <strong>{{ conversion.from }} to {{ conversion.to }}</strong><br>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-center text-muted mt-4">No historical rates available.</p>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="{% url 'convert_currency' %}" class="btn btn-primary">Back to Converter</a>
+    </div>
+</div>
+{% endblock %}

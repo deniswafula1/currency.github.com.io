@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Multi Currency Conversion
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Multi-Currency Converter</h2>
+
+    <form method="POST" action="{% url 'multi_result' %}">
+        {% csrf_token %}
+        
+        <!-- From Currency Dropdown -->
+        <div class="form-group">
+            <label for="from_currency">From Currency</label>
+            <select name="from_currency" id="from_currency" class="form-control" required>
+                <option value="" disabled selected>Select Source Currency</option>
+                <option value="USD">United States Dollar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">British Pound (GBP)</option>
+                <option value="INR">Indian Rupee (INR)</option>
+                <option value="AUD">Australian Dollar (AUD)</option>
+                <option value="CAD">Canadian Dollar (CAD)</option>
+                <option value="JPY">Japanese Yen (JPY)</option>
+                <option value="CNY">Chinese Yuan (CNY)</option>
+                <!-- Add more currencies as required -->
+            </select>
+        </div>
+
+        <!-- To Currency Dropdown -->
+        <div class="form-group mt-3">
+            <label for="to_currency">To Currencies</label>
+            <select name="to_currency" id="to_currency" class="form-control" multiple required>
+                <option value="" disabled selected>Select Target Currencies</option>
+                <option value="USD">United States Dollar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">British Pound (GBP)</option>
+                <option value="INR">Indian Rupee (INR)</option>
+                <option value="AUD">Australian Dollar (AUD)</option>
+                <option value="CAD">Canadian Dollar (CAD)</option>
+                <option value="JPY">Japanese Yen (JPY)</option>
+                <option value="CNY">Chinese Yuan (CNY)</option>
+                <!-- Add more currencies as required -->
+            </select>
+        </div>
+
+        <!-- Amount Input -->
+        <div class="form-group mt-3">
+            <label for="amount">Amount</label>
+            <input type="number" name="amount" id="amount" class="form-control" placeholder="Enter amount" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary mt-3">Convert</button>
+    </form>
+
+    <!-- Display Conversion Results -->
+    {% if conversion_results %}
+    <h3 class="text-center mt-5">Conversion Results</h3>
+    <ul class="list-group mt-4">
+        {% for result in conversion_results %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <strong>{{ result.from_currency }} to {{ result.to_currency }}</strong>
+                <br>
+                Amount: {{ result.amount }}
+                <br>
+                Converted Amount:
+                {% if result.converted_amount == 'Rate converted successfully!' %}
+                    <span class="text-danger">{{ result.converted_amount }}</span>
+                {% else %}
+                    {{ result.converted_amount }}
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if not request.user.is_authenticated %}
+    <p class="text-center mt-4 text-muted">Please <a href="{% url 'login' %}">login</a> to view your results.</p>
+    {% endif %}
+</div>
+{% endblock %}

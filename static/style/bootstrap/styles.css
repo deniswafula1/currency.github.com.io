@@ -1,0 +1,284 @@
+/* General Layout */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f3f4f6, #ffffff);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container Styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+/* Form Styling */
+form {
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields and Select */
+input, select {
+    font-size: 1rem;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Buttons */
+button {
+    font-size: 1rem;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+}
+
+button.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+}
+
+button.btn-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    color: #fff;
+}
+
+button.btn-success:hover {
+    background: linear-gradient(135deg, #1e7e34, #155d25);
+}
+
+button.btn-info {
+    background: linear-gradient(135deg, #17a2b8, #117a8b);
+    color: #fff;
+}
+
+button.btn-info:hover {
+    background: linear-gradient(135deg, #117a8b, #0b5a64);
+}
+
+button.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #a71d2a);
+    color: #fff;
+}
+
+button.btn-danger:hover {
+    background: linear-gradient(135deg, #a71d2a, #721421);
+}
+
+/* Alert Box */
+.alert-info {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e9f7ff, #d0effc);
+    border: 1px solid #b8e0f4;
+    color: #31708f;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+}
+
+/* for the favorites
+
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the content - setting max-width to contain content */
+.container {
+    width: 100%;
+    max-width: 900px; /* Limit the max width for an elegant size */
+    margin: 30px auto; /* Center the container with margin on top and bottom */
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Page title */
+h3 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    color: #333;
+}
+
+select.form-control {
+    padding: 10px;
+    font-size: 1.1em;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease;
+}
+
+select.form-control:focus {
+    border-color: #5cb85c;
+}
+
+/* Button Styles */
+button.btn {
+    background-color: #5cb85c;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+    background-color: #4cae4c;
+}
+
+/* Table styles */
+table.table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table.table thead {
+    background-color: #f8f9fa;
+}
+
+table.table th, table.table td {
+    padding: 12px;
+    font-size: 1.1em;
+    border: 1px solid #ddd;
+}
+
+table.table th {
+    background-color: #e9ecef;
+    color: #333;
+}
+
+table.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.table td a {
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+table.table td a.btn-success {
+    background-color: #28a745;
+}
+
+table.table td a.btn-success:hover {
+    background-color: #218838;
+}
+
+table.table td a.btn-danger {
+    background-color: #dc3545;
+}
+
+table.table td a.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Alert message */
+.alert {
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 1.2em;
+    border-radius: 8px;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 100%;
+        max-width: none; /* Let the container be full width on small screens */
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    table.table th, table.table td {
+        font-size: 1em;
+    }
+
+    select.form-control, button.btn {
+        font-size: 1.1em;
+    }
+}

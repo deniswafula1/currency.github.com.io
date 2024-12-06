@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Currency Converter
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Currency Converter</h2>
+
+    <!-- Currency Converter Form -->
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="source_currency" class="form-label">From Currency</label>
+                <select name="source_currency" id="source_currency" class="form-select" required>
+                    <option value="" disabled selected>Select Currency</option>
+                    <option value="USD">USD - United States Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="KES">KES - Kenyan Shilling</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="INR">INR - Indian Rupee</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="target_currency" class="form-label">To Currency</label>
+                <select name="target_currency" id="target_currency" class="form-select" required>
+                    <option value="" disabled selected>Select Currency</option>
+                    <option value="USD">USD - United States Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="KES">KES - Kenyan Shilling</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="INR">INR - Indian Rupee</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="number" name="amount" class="form-control" placeholder="e.g., 100" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Convert</button>
+    </form>
+
+    <!-- Converted Result Section -->
+    {% if converted_amount %}
+    <div class="mt-4 alert alert-info text-center">
+        <h5>Converted Amount:</h5>
+        <p class="fs-4"><strong>{{ converted_amount }}</strong></p>
+    </div>
+    {% endif %}
+
+    <!-- Button to navigate to Currency Register -->
+    <div class="text-center mt-4">
+        <a href="{% url 'currency_register' %}" class="btn btn-success">Register New Currency</a>
+    </div>
+{% endblock %}

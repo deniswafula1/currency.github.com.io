@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Login</h2>
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    <!-- Display errors if login fails -->
+    {% if form.errors %}
+    <div class="alert alert-danger mt-3">
+        <strong>Error:</strong> Invalid username or password.
+    </div>
+    {% endif %}
+    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+
+</div>
+{% endblock %}
