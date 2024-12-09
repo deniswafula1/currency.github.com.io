@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 
-{% load static %}
-
 {% block title %}
 Favorites
 {% endblock %}
 
 {% block content %}
-
 {% if messages %}
     {% for message in messages %}
         <div class="alert {{ message.tags }}">{{ message }}</div>
@@ -17,7 +14,7 @@ Favorites
 <h3>Currency List</h3>
 
 <!-- Add a form to select a currency and add to favorites -->
-<form method="POST" action="{% url 'add_to_favorites' %}">
+<form method="POST" action="{% url 'favorites' %}">
     {% csrf_token %}
     <div class="form-group">
         <label for="currency">Select Currency</label>
@@ -38,22 +35,31 @@ Favorites
             <th>NAME</th>
             <th>CODE</th>
             <th>SYMBOL</th>
+            <th>CONVERTED AMOUNT</th>
+            <th>FROM</th>
+            <th>RATE</th>
             <th>EDIT</th>
             <th>DELETE</th>
         </tr>
     </thead>
     <tbody>
+        {% for favorite in favorites %}
             <tr>
                 <td>{{ favorite.currency.name }}</td>
                 <td>{{ favorite.currency.code }}</td>
                 <td>{{ favorite.currency.symbol }}</td>
-                <td><a href="" class="btn btn-success">Edit</a></td>
+                <td>{{ favorite.converted_amount }}</td>
+                <td>{{ favorite.from_currency }}</td>
+                <td>{{ favorite.conversion_rate }}</td>
                 <td>
-                    <a href="" class="btn btn-danger"
-                    onclick="return confirm('Are you sure you want to delete this currency from favorites?')">Delete</a>
+                    <a href="#" class="btn btn-success">Edit</a>
+                </td>
+                <td>
+                    <a href="{% url 'delete_favorite' favorite.id %}" class="btn btn-danger"
+                       onclick="return confirm('Are you sure you want to delete this currency from favorites?')">Delete</a>
                 </td>
             </tr>
-    
+        {% endfor %}
     </tbody>
 </table>
 

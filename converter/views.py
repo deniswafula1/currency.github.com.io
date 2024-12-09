@@ -332,3 +332,6 @@ def multi_result(request):
             conversion_results.append({'error': 'Please fill in all fields correctly.'})
 
     return render(request, 'multi_result.html', {'conversion_results': conversion_results})
+
+
+

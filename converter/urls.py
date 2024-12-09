@@ -19,5 +19,8 @@ urlpatterns = [
     #path('edit_favorite/<int:favorite_id>/', views.edit_favorite, name='edit_favorite'),
     path('add_to_favorites/', views.add_to_favorites, name='add_to_favorites'),
     path('delete_favorite/<int:favorite_id>/', views.delete_favorite, name='delete_favorite'),
+    path('favorites/', views.favorites, name='favorites'),
+    path('delete_favorite/<int:favorite_id>/', views.delete_favorite, name='delete_favorite'),
+  
 
 ]

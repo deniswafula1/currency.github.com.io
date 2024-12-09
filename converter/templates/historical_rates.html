@@ -5,23 +5,27 @@ Historical Rates
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2 class="text-center">Your Historical Currency Conversions</h2>
-
-    {% if history %}
-    <ul class="list-group mt-4">
-        {% for conversion in history %}
-        <li class="list-group-item">
-            <strong>{{ conversion.from }} to {{ conversion.to }}</strong><br>
-        </li>
+<h3>Historical Conversion Rates</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+            <th>Rate</th>
+            <th>Converted Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for conversion in conversions %}
+        <tr>
+            <td>{{ conversion.date }}</td>
+            <td>{{ conversion.from_currency }}</td>
+            <td>{{ conversion.to_currency }}</td>
+            <td>{{ conversion.conversion_rate }}</td>
+            <td>{{ conversion.converted_amount }}</td>
+        </tr>
         {% endfor %}
-    </ul>
-    {% else %}
-    <p class="text-center text-muted mt-4">No historical rates available.</p>
-    {% endif %}
-
-    <div class="text-center mt-4">
-        <a href="{% url 'convert_currency' %}" class="btn btn-primary">Back to Converter</a>
-    </div>
-</div>
+    </tbody>
+</table>
 {% endblock %}
